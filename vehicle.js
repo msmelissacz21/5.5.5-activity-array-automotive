@@ -1,4 +1,4 @@
-class Vehicle {
+export class Vehicle {
     constructor(make, model, year, color, mileage) {
         this.make = make;
         this.model = model;
@@ -13,11 +13,11 @@ class Vehicle {
 
     start() {
         if (this.fuel > 0) {
-            return this.started = true;
             console.log("engine started...!!!");
+            return this.started = true;  
         } else {
-            return this.started = false;
             console.log("engine cannot start...");
+            return this.started = false;
         }
     }
     accelerate() {
@@ -88,4 +88,43 @@ class Vehicle {
 //This exports things you want to use from this "module", more info in readme
 module.exports = {
     Vehicle
+}
+
+class Car extends Vehicle {
+    constructor(){
+        super()
+        this.maximumPassengers = 6;
+        this.maximumSpeed = 200;
+        this.fuel = 100;
+        this.scheduleService = false;
+    }
+
+    loadPassenger() {
+        if(this.passenger<this.maximumPassengers){
+            console.log("There is room in the car for more people");
+            return this.availableRoom == true;
+        } else {
+            console.log("There is no room in the car for more people");
+            return this.availableRoom == false;
+        }
+    }
+
+    scheduleService() {
+        if(this.milage > 30000) {
+            console.log("Schedule car service")
+            return true;
+        } else {
+            console.log("No service needed")
+            return false;
+        }
+    }
+
+}
+
+let c = new Car()
+c.maximumPassengers
+
+let f = c.hasFuel()
+if(f) {
+    c.start()
 }

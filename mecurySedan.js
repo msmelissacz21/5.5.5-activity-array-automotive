@@ -1,3 +1,4 @@
+import {Vehicle} from "./vehicle"
 //this includes the vehicle class as a module
 const VehicleModule = require("./vehicle")
 
